@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>yelp camp</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+</head>
+<body>
+    <nav id="nav-bar-main" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">YelpCamp</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <% if(!currentUser ){ %> 
+                    <li class="nav-item"> <a class="nav-link" href="/login">Login</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/register">Sign Up</a> </li>
+                <% }else{ %>
+                    <li class="nav-item"><a class="nav-link" href="#"> Signed In As <%= currentUser.username %> </a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/logout">Logout</a> </li>
+                <% } %>
+            </ul>  
+        </div>
+    </nav>
+    <div class= "container">
+        <% if(errorflash && errorflash.length>0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= errorflash %>
+            </div>
+        <% } %>
+        <% if(successflash && successflash.length>0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= successflash %>
+            </div>
+        <% } %>
+    </div>
+    
+    
